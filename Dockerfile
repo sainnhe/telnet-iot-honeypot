@@ -1,12 +1,12 @@
-FROM ubuntu:bionic
+FROM sainnhe/telnet-iot-honeypot:base
 
-WORKDIR /usr/src/app
+# Config
+RUN \
+    cat /root/telnet-iot-honeypot/config.yaml >> /root/telnet-iot-honeypot/config.dist.yaml \
+    && rm /root/telnet-iot-honeypot/config.yaml
 
-COPY ./requirements.txt ./
-RUN apt update && apt install -y python-pip
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install mysqlclient
-
-COPY . .
-
-RUN apt update && apt install -y sqlite3
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD [ "/usr/bin/python", "honeypot.py" ]
+WORKDIR /root/telnet-iot-honeypot
+EXPOSE 2323
