@@ -7,7 +7,7 @@ RUN \
 
 # Http Server
 RUN \
-    apt install -y lighttpd \
+    apt update && apt install -y lighttpd \
     && cd /root/telnet-iot-honeypot \
     && cp -R html /var/www \
     && chown www-data:www-data /var/www -R
