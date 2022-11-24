@@ -9,7 +9,8 @@ RUN \
 
 # Http Server
 RUN \
-    apt update && apt install -y lighttpd \
+    sed -i 's/mirrors.tuna.tsinghua.edu.cn/mirrors.aliyun.com/' /etc/apt/sources.list \
+    && apt update && apt install -y lighttpd \
     && cd /root/telnet-iot-honeypot \
     && cp -R html /var/www \
     && chown www-data:www-data /var/www -R
