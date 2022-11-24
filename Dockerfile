@@ -3,8 +3,8 @@ FROM sainnhe/telnet-iot-honeypot:base
 # Config
 RUN \
     cd /root/telnet-iot-honeypot \
-    && git checkout -- . \
     && git pull origin master \
+    && cat config.yaml >> config.dist.yaml \
     && rm config.yaml
 
 # Http Server
