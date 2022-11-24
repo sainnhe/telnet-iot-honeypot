@@ -50,7 +50,32 @@ basically translates a session (or connection) into a sequence
 of words and then maps each word to a single byte so this resulting
 sequence of bytes can be easily searched.
 
-# Running
+# Running in container
+
+```bash
+podman run \
+	--name honeypot \
+	-v ./log:/tmp \
+	-p 2323:2323 \
+	-p 5000:5000 \
+	--rm sainnhe/telnet-iot-honeypot:latest
+```
+
+Where `2323` is telnet port, and `5000` is web server port.
+
+If you want to use custom config, copy `config.dist.yaml` to `config.yaml` and edit the content in `config.yaml`, then mount it like this:
+
+```bash
+podman run \
+	--name honeypot \
+	-v ./config.yaml:/root/telnet-iot-honeypot/config.yaml \
+	-v ./log:/tmp \
+	-p 2323:2323 \
+	-p 5000:5000 \
+	--rm sainnhe/telnet-iot-honeypot:latest
+```
+
+# Running manually
 
 The application has a config file named config.py.
 Samples are included for local and client/server deployments.
