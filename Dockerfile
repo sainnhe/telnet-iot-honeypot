@@ -3,6 +3,7 @@ FROM sainnhe/telnet-iot-honeypot:base
 # Config
 RUN \
     cd /root/telnet-iot-honeypot \
+    && git remote set-url origin https://github.com/sainnhe/telnet-iot-honeypot.git \
     && git pull origin master \
     && cat config.yaml >> config.dist.yaml \
     && rm config.yaml
