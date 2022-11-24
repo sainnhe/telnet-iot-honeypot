@@ -61,7 +61,7 @@ podman run \
 	--rm sainnhe/telnet-iot-honeypot:latest
 ```
 
-Where `2323` is telnet port, and `5000` is web server port.
+Where `2323` is telnet port, and `5000` is web server port. The log is available in `./log`.
 
 If you want to use custom config, copy `config.dist.yaml` to `config.yaml` and edit the content in `config.yaml`, then mount it like this:
 

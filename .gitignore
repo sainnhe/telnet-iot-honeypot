@@ -10,3 +10,4 @@ review-sampels.py
 *.sql
 *.log
 config.yaml
+log/*

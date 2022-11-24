@@ -26,7 +26,7 @@ backend: "http://localhost:5000"
 
 # Write raw data to logfile, can be imported into backend db later
 #   does include everything EXCEPT sample contents
-log_raw: "/tmp/honeypot.log"
+log_raw: "/tmp/honeypot.json"
 
 # Save samples in sample_dir
 log_samples: "/tmp"
